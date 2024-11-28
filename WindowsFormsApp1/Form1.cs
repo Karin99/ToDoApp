@@ -32,6 +32,16 @@ namespace WindowsFormsApp1
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            String family = comboBoxFamily.Text;
+            DateTime date = dateTimePicker.Value;
+            String task = taskTextBox.Text;
+
+            dataGridView.Rows.Add(false, family, date.ToShortDateString(), task);
+
+            family = "";
+            date = DateTime.Now;
+            task = "";
+
             MessageBox.Show("登録完了");
         }
 
