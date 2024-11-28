@@ -20,6 +20,8 @@ namespace WindowsFormsApp1
         private void ToDoList_Load(object sender, EventArgs e)
         {
             dataGridView.RowHeadersVisible = false;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.MultiSelect = true;
 
             labelFamily.Text = "いつまでに？";
             labelDate.Text = "だれが？";
@@ -28,6 +30,11 @@ namespace WindowsFormsApp1
             btnRegister.Text = "登録";
             btnDelete.Text = "削除";
             btnSave.Text = "保存";
+
+            dataGridView.Rows.Add(false, "ひろし", "2024/08/30", "洗車");
+            dataGridView.Rows.Add(false, "みさえ", "2024/09/30", "玄関掃除");
+            dataGridView.Rows.Add(false, "しんのすけ", "2024/10/30", "シロにごはんをあげる");
+            dataGridView.Rows.Add(false, "ひまわり", "2024/11/30", "シロと遊ぶ");
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -47,6 +54,14 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView.SelectedRows)
+            {
+                if (!row.IsNewRow)
+                {
+                    dataGridView.Rows.Remove(row);
+                }
+            }
+
             MessageBox.Show("削除完了");
         }
 
