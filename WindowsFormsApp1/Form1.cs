@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
             btnRegister.Text = "登録";
             btnDelete.Text = "削除";
             btnSave.Text = "保存";
+            btnImport.Text = "呼出";
 
                         // テストデータ
             dataGridView.Rows.Add(false, "ひろし", "2024/08/30", "洗車");

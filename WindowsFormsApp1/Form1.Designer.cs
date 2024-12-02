@@ -32,10 +32,6 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Complete = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Family = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelName = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labelDate = new System.Windows.Forms.Label();
@@ -46,6 +42,10 @@ namespace WindowsFormsApp1
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
+            this.ColumnIsCompleted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,43 +55,16 @@ namespace WindowsFormsApp1
             this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Complete,
-            this.Family,
-            this.Date,
-            this.ToDo});
+            this.ColumnIsCompleted,
+            this.ColumnName,
+            this.ColumnDate,
+            this.ColumnTask});
             this.dataGridView.Location = new System.Drawing.Point(14, 88);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 21;
             this.dataGridView.Size = new System.Drawing.Size(379, 242);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Complete
-            // 
-            this.Complete.HeaderText = "完了";
-            this.Complete.Name = "Complete";
-            this.Complete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Complete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Complete.Width = 54;
-            this.Complete.ValueType = typeof(Boolean);
-            // 
-            // Family
-            // 
-            this.Family.HeaderText = "担当";
-            this.Family.Name = "Family";
-            this.Family.ValueType = typeof(String);
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "期限";
-            this.Date.Name = "Date";
-            this.Date.ValueType = typeof(DateTime);
-            // 
-            // ToDo
-            // 
-            this.ToDo.HeaderText = "やること";
-            this.ToDo.Name = "ToDo";
-            this.ToDo.ValueType = typeof(String);
             // 
             // labelName
             // 
@@ -194,6 +167,32 @@ namespace WindowsFormsApp1
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // ColumnIsCompleted
+            // 
+            this.ColumnIsCompleted.HeaderText = "完了";
+            this.ColumnIsCompleted.Name = "ColumnIsCompleted";
+            this.ColumnIsCompleted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnIsCompleted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnIsCompleted.Width = 55;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "担当";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnName.Width = 70;
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "日付";
+            this.ColumnDate.Name = "ColumnDate";
+            // 
+            // ColumnTask
+            // 
+            this.ColumnTask.HeaderText = "やること";
+            this.ColumnTask.Name = "ColumnTask";
+            this.ColumnTask.Width = 200;
+            // 
             // ToDoList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -235,11 +234,11 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Complete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Family;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ToDo;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnIsCompleted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTask;
     }
 }
 
