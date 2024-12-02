@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
             btnSave.Text = "保存";
             btnImport.Text = "呼出";
 
-                        // テストデータ
+            // テストデータ
             dataGridView.Rows.Add(false, "ひろし", "2024/08/30", "洗車");
             dataGridView.Rows.Add(false, "みさえ", "2024/09/30", "玄関掃除");
             dataGridView.Rows.Add(false, "しんのすけ", "2024/10/30", "シロにごはんをあげる");
@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
                 {
                     Boolean completed = Convert.ToBoolean(row.Cells[0].Value);
                     String name = row.Cells[1].Value.ToString();
-                    DateTime date = Convert.ToDateTime(row.Cells[2].Value);
+                    String date = Convert.ToDateTime(row.Cells[2].Value).ToShortDateString();
                     String task = row.Cells[3].Value.ToString();
 
                     Data data = new Data(completed, name, date, task);
@@ -97,8 +97,7 @@ namespace WindowsFormsApp1
             foreach (var data in taskList)
             {
                 dataGridView.Rows.Add(data.isCompleted, data.name, data.date, data.task);
-            }
-            
+            }            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

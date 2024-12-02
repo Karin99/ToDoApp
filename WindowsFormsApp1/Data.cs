@@ -9,7 +9,7 @@ namespace WindowsFormsApp1
 {
     public class Data
     {
-        public Data(bool completed, string name, DateTime date, string task)
+        public Data(bool completed, string name, String date, string task)
         {
             this.isCompleted = completed;
             this.name = name;
@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
 
         public String name { get; set; }
 
-        public DateTime date { get; set; }
+        public String date { get; set; }
 
         public String task { get; set; }
     }
