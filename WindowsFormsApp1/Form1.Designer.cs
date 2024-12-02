@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WindowsFormsApp1
+﻿namespace WindowsFormsApp1
 {
     partial class ToDoList
 
@@ -61,7 +59,7 @@ namespace WindowsFormsApp1
             this.ColumnName,
             this.ColumnDate,
             this.ColumnTask});
-            this.dataGridView.Location = new System.Drawing.Point(20, 80);
+            this.dataGridView.Location = new System.Drawing.Point(20, 109);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 21;
             this.dataGridView.Size = new System.Drawing.Size(430, 240);
@@ -99,7 +97,7 @@ namespace WindowsFormsApp1
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(171, 378);
+            this.labelName.Location = new System.Drawing.Point(18, 56);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(27, 12);
             this.labelName.TabIndex = 4;
@@ -108,16 +106,16 @@ namespace WindowsFormsApp1
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(173, 393);
+            this.dateTimePicker.Location = new System.Drawing.Point(20, 71);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(127, 19);
+            this.dateTimePicker.Size = new System.Drawing.Size(137, 19);
             this.dateTimePicker.TabIndex = 5;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(171, 340);
+            this.labelDate.Location = new System.Drawing.Point(18, 9);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(36, 12);
             this.labelDate.TabIndex = 6;
@@ -126,17 +124,17 @@ namespace WindowsFormsApp1
             // 
             // taskTextBox
             // 
-            this.taskTextBox.Location = new System.Drawing.Point(20, 355);
+            this.taskTextBox.Location = new System.Drawing.Point(179, 24);
             this.taskTextBox.Multiline = true;
             this.taskTextBox.Name = "taskTextBox";
-            this.taskTextBox.Size = new System.Drawing.Size(140, 57);
+            this.taskTextBox.Size = new System.Drawing.Size(167, 66);
             this.taskTextBox.TabIndex = 7;
             this.taskTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // labelTask
             // 
             this.labelTask.AutoSize = true;
-            this.labelTask.Location = new System.Drawing.Point(20, 340);
+            this.labelTask.Location = new System.Drawing.Point(177, 9);
             this.labelTask.Name = "labelTask";
             this.labelTask.Size = new System.Drawing.Size(29, 12);
             this.labelTask.TabIndex = 8;
@@ -151,17 +149,17 @@ namespace WindowsFormsApp1
             "みさえ",
             "しんのすけ",
             "ひまわり"});
-            this.comboBoxName.Location = new System.Drawing.Point(173, 355);
+            this.comboBoxName.Location = new System.Drawing.Point(20, 24);
             this.comboBoxName.Name = "comboBoxName";
-            this.comboBoxName.Size = new System.Drawing.Size(127, 20);
+            this.comboBoxName.Size = new System.Drawing.Size(137, 20);
             this.comboBoxName.TabIndex = 9;
             this.comboBoxName.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(320, 372);
+            this.btnRegister.Location = new System.Drawing.Point(380, 50);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(80, 40);
+            this.btnRegister.Size = new System.Drawing.Size(75, 40);
             this.btnRegister.TabIndex = 0;
             this.btnRegister.Text = "register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -169,9 +167,9 @@ namespace WindowsFormsApp1
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(20, 20);
+            this.btnDelete.Location = new System.Drawing.Point(20, 371);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(70, 40);
+            this.btnDelete.Size = new System.Drawing.Size(75, 40);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -179,9 +177,9 @@ namespace WindowsFormsApp1
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(109, 20);
+            this.btnSave.Location = new System.Drawing.Point(108, 371);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(70, 40);
+            this.btnSave.Size = new System.Drawing.Size(75, 40);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -189,9 +187,9 @@ namespace WindowsFormsApp1
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(198, 20);
+            this.btnImport.Location = new System.Drawing.Point(195, 371);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(70, 40);
+            this.btnImport.Size = new System.Drawing.Size(75, 40);
             this.btnImport.TabIndex = 10;
             this.btnImport.Text = "import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -200,9 +198,9 @@ namespace WindowsFormsApp1
             // btnHide
             // 
             this.btnHide.AllowDrop = true;
-            this.btnHide.Location = new System.Drawing.Point(289, 20);
+            this.btnHide.Location = new System.Drawing.Point(285, 371);
             this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(70, 40);
+            this.btnHide.Size = new System.Drawing.Size(75, 40);
             this.btnHide.TabIndex = 11;
             this.btnHide.Text = "hide";
             this.btnHide.UseVisualStyleBackColor = true;
@@ -210,9 +208,9 @@ namespace WindowsFormsApp1
             // 
             // btnUnhide
             // 
-            this.btnUnhide.Location = new System.Drawing.Point(380, 20);
+            this.btnUnhide.Location = new System.Drawing.Point(375, 371);
             this.btnUnhide.Name = "btnUnhide";
-            this.btnUnhide.Size = new System.Drawing.Size(70, 40);
+            this.btnUnhide.Size = new System.Drawing.Size(75, 40);
             this.btnUnhide.TabIndex = 12;
             this.btnUnhide.Text = "unhide";
             this.btnUnhide.UseVisualStyleBackColor = true;
@@ -222,7 +220,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 426);
+            this.ClientSize = new System.Drawing.Size(469, 435);
             this.Controls.Add(this.btnUnhide);
             this.Controls.Add(this.btnHide);
             this.Controls.Add(this.btnImport);
