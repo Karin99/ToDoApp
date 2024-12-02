@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApp1
+﻿using System;
+
+namespace WindowsFormsApp1
 {
     partial class ToDoList
 
@@ -30,161 +32,180 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.complete = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.family = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.task = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelFamily = new System.Windows.Forms.Label();
+            this.Complete = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Family = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelName = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labelDate = new System.Windows.Forms.Label();
             this.taskTextBox = new System.Windows.Forms.TextBox();
             this.labelTask = new System.Windows.Forms.Label();
-            this.comboBoxFamily = new System.Windows.Forms.ComboBox();
+            this.comboBoxName = new System.Windows.Forms.ComboBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.btnRegister.Location = new System.Drawing.Point(555, 293);
-            this.btnRegister.Name = "button1";
-            this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 0;
-            this.btnRegister.Text = "register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // button2
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(646, 293);
-            this.btnDelete.Name = "button2";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // button3
-            // 
-            this.btnSave.Location = new System.Drawing.Point(555, 333);
-            this.btnSave.Name = "button3";
-            this.btnSave.Size = new System.Drawing.Size(166, 39);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
+            // dataGridView
             // 
             this.dataGridView.AllowUserToOrderColumns = true;
+            this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.complete,
-            this.family,
-            this.date,
-            this.task});
-            this.dataGridView.Location = new System.Drawing.Point(37, 60);
-            this.dataGridView.Name = "dataGridView1";
+            this.Complete,
+            this.Family,
+            this.Date,
+            this.ToDo});
+            this.dataGridView.Location = new System.Drawing.Point(14, 88);
+            this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 21;
-            this.dataGridView.Size = new System.Drawing.Size(458, 381);
+            this.dataGridView.Size = new System.Drawing.Size(379, 242);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // label1
+            // Complete
             // 
-            this.labelFamily.AutoSize = true;
-            this.labelFamily.Location = new System.Drawing.Point(553, 145);
-            this.labelFamily.Name = "label1";
-            this.labelFamily.Size = new System.Drawing.Size(27, 12);
-            this.labelFamily.TabIndex = 4;
-            this.labelFamily.Text = "date";
-            this.labelFamily.Click += new System.EventHandler(this.label1_Click);
+            this.Complete.HeaderText = "完了";
+            this.Complete.Name = "Complete";
+            this.Complete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Complete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Complete.Width = 54;
+            this.Complete.ValueType = typeof(Boolean);
             // 
-            // dateTimePicker1
+            // Family
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(555, 176);
-            this.dateTimePicker.Name = "dateTimePicker1";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 19);
+            this.Family.HeaderText = "担当";
+            this.Family.Name = "Family";
+            this.Family.ValueType = typeof(String);
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "期限";
+            this.Date.Name = "Date";
+            this.Date.ValueType = typeof(DateTime);
+            // 
+            // ToDo
+            // 
+            this.ToDo.HeaderText = "やること";
+            this.ToDo.Name = "ToDo";
+            this.ToDo.ValueType = typeof(String);
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(205, 403);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(27, 12);
+            this.labelName.TabIndex = 4;
+            this.labelName.Text = "date";
+            this.labelName.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(207, 428);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(127, 19);
             this.dateTimePicker.TabIndex = 5;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // label2
+            // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(553, 73);
-            this.labelDate.Name = "label2";
+            this.labelDate.Location = new System.Drawing.Point(205, 354);
+            this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(36, 12);
             this.labelDate.TabIndex = 6;
             this.labelDate.Text = "family";
             this.labelDate.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // taskTextBox
             // 
-            this.taskTextBox.Location = new System.Drawing.Point(555, 240);
-            this.taskTextBox.Name = "textBox1";
-            this.taskTextBox.Size = new System.Drawing.Size(200, 19);
+            this.taskTextBox.Location = new System.Drawing.Point(14, 369);
+            this.taskTextBox.Multiline = true;
+            this.taskTextBox.Name = "taskTextBox";
+            this.taskTextBox.Size = new System.Drawing.Size(168, 78);
             this.taskTextBox.TabIndex = 7;
             this.taskTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label3
+            // labelTask
             // 
             this.labelTask.AutoSize = true;
-            this.labelTask.Location = new System.Drawing.Point(553, 213);
-            this.labelTask.Name = "label3";
+            this.labelTask.Location = new System.Drawing.Point(12, 354);
+            this.labelTask.Name = "labelTask";
             this.labelTask.Size = new System.Drawing.Size(29, 12);
             this.labelTask.TabIndex = 8;
             this.labelTask.Text = "toDo";
             this.labelTask.Click += new System.EventHandler(this.label3_Click);
             // 
-            // comboBox1
+            // comboBoxName
             // 
-            this.comboBoxFamily.FormattingEnabled = true;
-            this.comboBoxFamily.Items.AddRange(new object[] {
+            this.comboBoxName.FormattingEnabled = true;
+            this.comboBoxName.Items.AddRange(new object[] {
             "ひろし",
             "みさえ",
             "しんのすけ",
             "ひまわり"});
-            this.comboBoxFamily.Location = new System.Drawing.Point(555, 106);
-            this.comboBoxFamily.Name = "comboBox1";
-            this.comboBoxFamily.Size = new System.Drawing.Size(200, 20);
-            this.comboBoxFamily.TabIndex = 9;
-            this.comboBoxFamily.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxName.Location = new System.Drawing.Point(207, 369);
+            this.comboBoxName.Name = "comboBoxName";
+            this.comboBoxName.Size = new System.Drawing.Size(127, 20);
+            this.comboBoxName.TabIndex = 9;
+            this.comboBoxName.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // Complete
+            // btnRegister
             // 
-            this.complete.HeaderText = "完了";
-            this.complete.Name = "Complete";
-            this.complete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.complete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.complete.Width = 54;
+            this.btnRegister.Location = new System.Drawing.Point(247, 471);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(87, 39);
+            this.btnRegister.TabIndex = 0;
+            this.btnRegister.Text = "register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // Family
+            // btnDelete
             // 
-            this.family.HeaderText = "担当";
-            this.family.Name = "Family";
+            this.btnDelete.Location = new System.Drawing.Point(14, 21);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(87, 39);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // Date
+            // btnSave
             // 
-            this.date.HeaderText = "期限";
-            this.date.Name = "Date";
+            this.btnSave.Location = new System.Drawing.Point(154, 21);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(87, 39);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ToDo
+            // btnImport
             // 
-            this.task.HeaderText = "やること";
-            this.task.Name = "ToDo";
+            this.btnImport.Location = new System.Drawing.Point(304, 21);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(87, 39);
+            this.btnImport.TabIndex = 10;
+            this.btnImport.Text = "import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // ToDoList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 493);
-            this.Controls.Add(this.comboBoxFamily);
+            this.ClientSize = new System.Drawing.Size(403, 522);
+            this.Controls.Add(this.btnImport);
+            this.Controls.Add(this.comboBoxName);
             this.Controls.Add(this.labelTask);
             this.Controls.Add(this.taskTextBox);
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.dateTimePicker);
-            this.Controls.Add(this.labelFamily);
+            this.Controls.Add(this.labelName);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnRegister);
@@ -202,18 +223,23 @@
 
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn complete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn family;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn task;
-        private System.Windows.Forms.Label labelFamily;
+        private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.TextBox taskTextBox;
         private System.Windows.Forms.Label labelTask;
-        private System.Windows.Forms.ComboBox comboBoxFamily;
+        private System.Windows.Forms.ComboBox comboBoxName;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Complete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Family;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ToDo;
+        private System.Windows.Forms.Button btnImport;
     }
 }
 
