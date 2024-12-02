@@ -35,6 +35,8 @@ namespace WindowsFormsApp1
             btnDelete.Text = "削除";
             btnSave.Text = "保存";
             btnImport.Text = "呼出";
+            btnHide.Text = "非表示";
+            btnUnhide.Text = "再表示";
 
             // テストデータ
             dataGridView.Rows.Add(false, "ひろし", "2024/08/30", "洗車");
@@ -97,7 +99,28 @@ namespace WindowsFormsApp1
             foreach (var data in taskList)
             {
                 dataGridView.Rows.Add(data.isCompleted, data.name, data.date, data.task);
-            }            
+            }
+        }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Cells["ColumnIsCompleted"].Value is bool isCompleted)
+                {
+                    row.Visible = !isCompleted;
+                }
+            }
+        }
+        private void btnUnhide_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Cells["ColumnIsCompleted"].Value is bool isCompleted)
+                {
+                    row.Visible = true;
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
