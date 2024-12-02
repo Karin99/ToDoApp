@@ -1,14 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace WindowsFormsApp1
 {
@@ -19,7 +11,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        public List<Data> taskList = new List<Data>();
+        private List<Data> taskList = new List<Data>();
 
         private void ToDoList_Load(object sender, EventArgs e)
         {
@@ -35,30 +27,29 @@ namespace WindowsFormsApp1
             btnDelete.Text = "削除";
             btnSave.Text = "保存";
             btnImport.Text = "呼出";
-            btnHide.Text = "非表示";
-            btnUnhide.Text = "再表示";
+            btnHide.Text = "完了済みを非表示";
+            btnUnhide.Text = "全表示";
 
             // テストデータ
             dataGridView.Rows.Add(false, "ひろし", "2024/08/30", "洗車");
             dataGridView.Rows.Add(false, "みさえ", "2024/09/30", "玄関掃除");
             dataGridView.Rows.Add(false, "しんのすけ", "2024/10/30", "シロにごはんをあげる");
             dataGridView.Rows.Add(false, "ひまわり", "2024/11/30", "シロと遊ぶ");
-
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             String name = comboBoxName.Text;
-            DateTime date = dateTimePicker.Value;
+            String date = dateTimePicker.Value.ToShortDateString();
             String task = taskTextBox.Text;
 
-            dataGridView.Rows.Add(false, name, date.ToShortDateString(), task);
-
-            name = "";
-            date = DateTime.Now;
-            task = "";
+            dataGridView.Rows.Add(false, name, date, task);
 
             MessageBox.Show("登録完了");
+
+            comboBoxName.Text = "";
+            dateTimePicker.Value = DateTime.Now;
+            taskTextBox.Text = "";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -70,26 +61,12 @@ namespace WindowsFormsApp1
                     dataGridView.Rows.Remove(row);
                 }
             }
-
             MessageBox.Show("削除完了");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            foreach (DataGridViewRow row in dataGridView.Rows)
-            {
-                if (!row.IsNewRow)
-                {
-                    Boolean completed = Convert.ToBoolean(row.Cells[0].Value);
-                    String name = row.Cells[1].Value.ToString();
-                    String date = Convert.ToDateTime(row.Cells[2].Value).ToShortDateString();
-                    String task = row.Cells[3].Value.ToString();
-
-                    Data data = new Data(completed, name, date, task);
-                    taskList.Add(data);
-                }
-            }
+            saveData();
             MessageBox.Show("保存完了");
             dataGridView.Rows.Clear();
         }
@@ -112,6 +89,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
         private void btnUnhide_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView.Rows)
@@ -119,6 +97,23 @@ namespace WindowsFormsApp1
                 if (row.Cells["ColumnIsCompleted"].Value is bool isCompleted)
                 {
                     row.Visible = true;
+                }
+            }
+        }
+
+        private void saveData()
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    Boolean completed = Convert.ToBoolean(row.Cells[0].Value);
+                    String name = row.Cells[1].Value.ToString();
+                    String date = Convert.ToDateTime(row.Cells[2].Value).ToShortDateString();
+                    String task = row.Cells[3].Value.ToString();
+
+                    Data data = new Data(completed, name, date, task);
+                    taskList.Add(data);
                 }
             }
         }
@@ -138,15 +133,16 @@ namespace WindowsFormsApp1
         private void label2_Click(object sender, EventArgs e)
         {
         }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
         }
     }
