@@ -13,7 +13,10 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ToDoList());
+
+            var dao = new TaskDao("Server=localhost;Database=todoapp;User ID=root;Password=rootrootroot;");
+
+            Application.Run(new ToDoList(dao));
         }
     }
 }

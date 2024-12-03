@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class ToDoList : Form
     {
-        public ToDoList()
+        public ToDoList(TaskDao dao)
         {
             InitializeComponent();
+            this.dao = dao;
         }
+
+        private TaskDao dao;
 
         private List<Data> taskList = new List<Data>();
 
@@ -19,26 +24,24 @@ namespace WindowsFormsApp1
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.MultiSelect = true;
 
-            labelName.Text = "いつまでに？";
-            labelDate.Text = "だれが？";
-            labelTask.Text = "なにやる？";
-
-            btnRegister.Text = "登録";
-            btnDelete.Text = "削除";
-            btnSave.Text = "保存";
-            btnImport.Text = "呼出";
-            btnHide.Text = "完了済みを非表示";
-            btnUnhide.Text = "全表示";
-
-            // テストデータ
-            dataGridView.Rows.Add(false, "ひろし", "2024/08/30", "洗車");
-            dataGridView.Rows.Add(false, "みさえ", "2024/09/30", "玄関掃除");
-            dataGridView.Rows.Add(false, "しんのすけ", "2024/10/30", "シロにごはんをあげる");
-            dataGridView.Rows.Add(false, "ひまわり", "2024/11/30", "シロと遊ぶ");
+            dataGridView.DataSource = dao.loadTasks();
+            dataGridView.Columns[0].HeaderText = "完了";
+            dataGridView.Columns[0].Name = "ColumnIsCompleted";
+            dataGridView.Columns[0].Width = 55;
+            dataGridView.Columns[1].HeaderText = "担当";
+            dataGridView.Columns[1].Name = "ColumnName";
+            dataGridView.Columns[1].Width = 70;
+            dataGridView.Columns[2].HeaderText = "日付";
+            dataGridView.Columns[2].Name = "ColumnDate";
+            dataGridView.Columns[2].Width = 100;
+            dataGridView.Columns[3].HeaderText = "やること";
+            dataGridView.Columns[3].Name = "ColumnTask";
+            dataGridView.Columns[3].Width = 200;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
             String name = comboBoxName.Text;
             String date = dateTimePicker.Value.ToShortDateString();
             String task = taskTextBox.Text;
@@ -68,7 +71,6 @@ namespace WindowsFormsApp1
         {
             saveData();
             MessageBox.Show("保存完了");
-            dataGridView.Rows.Clear();
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -81,23 +83,19 @@ namespace WindowsFormsApp1
 
         private void btnHide_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            if (dataGridView.DataSource is DataTable dataTable)
             {
-                if (row.Cells["ColumnIsCompleted"].Value is bool isCompleted)
-                {
-                    row.Visible = !isCompleted;
-                }
+                DataView dataView = dataTable.DefaultView;
+                dataView.RowFilter = "is_completed = false";
+                dataGridView.DataSource = dataView;
             }
         }
 
         private void btnUnhide_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            if (dataGridView.DataSource is DataView dataView)
             {
-                if (row.Cells["ColumnIsCompleted"].Value is bool isCompleted)
-                {
-                    row.Visible = true;
-                }
+                dataView.RowFilter = string.Empty;
             }
         }
 
@@ -116,34 +114,6 @@ namespace WindowsFormsApp1
                     taskList.Add(data);
                 }
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
         }
     }
 }
