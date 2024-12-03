@@ -43,10 +43,11 @@ namespace WindowsFormsApp1
         {
 
             String name = comboBoxName.Text;
-            String date = dateTimePicker.Value.ToShortDateString();
+            DateTime date = dateTimePicker.Value;
             String task = taskTextBox.Text;
 
-            dataGridView.Rows.Add(false, name, date, task);
+            //dataGridView.Rows.Add(false, name, date, task);
+            dao.registerTask(name, date, task);
 
             MessageBox.Show("登録完了");
 
@@ -75,10 +76,7 @@ namespace WindowsFormsApp1
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            foreach (var data in taskList)
-            {
-                dataGridView.Rows.Add(data.isCompleted, data.name, data.date, data.task);
-            }
+            ToDoList_Load(sender, e);
         }
 
         private void btnHide_Click(object sender, EventArgs e)
@@ -107,7 +105,7 @@ namespace WindowsFormsApp1
                 {
                     Boolean completed = Convert.ToBoolean(row.Cells[0].Value);
                     String name = row.Cells[1].Value.ToString();
-                    String date = Convert.ToDateTime(row.Cells[2].Value).ToShortDateString();
+                    DateTime date = Convert.ToDateTime(row.Cells[2].Value);
                     String task = row.Cells[3].Value.ToString();
 
                     Data data = new Data(completed, name, date, task);

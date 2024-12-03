@@ -30,5 +30,22 @@ namespace WindowsFormsApp1
             return tbl;
         }
 
+        public void registerTask(string name, DateTime date, string task)
+        {
+            string cmdText =
+                "INSERT INTO tasks (name, date, task) VALUES (@name, @date, @task)"; 
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand command = new MySqlCommand(cmdText, conn);
+
+            conn.Open();
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@date", date);
+            command.Parameters.AddWithValue("@task", task);
+
+            command.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
     }
 }
