@@ -136,7 +136,7 @@
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 40);
             this.btnImport.TabIndex = 10;
-            this.btnImport.Text = "呼出";
+            this.btnImport.Text = "読み込み";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
