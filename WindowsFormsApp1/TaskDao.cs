@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
 
-            string cmdText = "SELECT is_completed, name, date, task FROM tasks";
+            string cmdText = "SELECT * FROM tasks";
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmdText, conn);
             adapter.Fill(tbl);
             conn.Close();
@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
         public void registerTask(string name, DateTime date, string task)
         {
             string cmdText =
-                "INSERT INTO tasks (name, date, task) VALUES (@name, @date, @task)"; 
+                "INSERT INTO tasks (name, date, task) VALUES (@name, @date, @task)";
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand command = new MySqlCommand(cmdText, conn);
 
@@ -46,6 +46,21 @@ namespace WindowsFormsApp1
 
             conn.Close();
         }
+
+        public void deleteTask(int id)
+        {
+            string cmdText = "DELETE FROM tasks WHERE id=@id";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand command = new MySqlCommand(cmdText, conn);
+
+            conn.Open();
+            command.Parameters.AddWithValue("@id", id);
+
+            command.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
 
     }
 }
