@@ -1,10 +1,7 @@
-﻿using System.Text;
-using System;
+﻿using System;
 
 using MySql.Data.MySqlClient;
 using System.Data;
-using Microsoft.Extensions.DependencyInjection;
-using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
@@ -61,6 +58,18 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
+        public void saveTask(Boolean isCompleted, int id)
+        {
+            string cmdText = "UPDATE tasks SET is_completed=@isCompleted WHERE id=@id";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand command = new MySqlCommand(cmdText, conn);
 
+            conn.Open();
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@isCompleted", isCompleted);
+            command.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }
