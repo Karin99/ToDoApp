@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class ToDoList : Form
     {
-        public ToDoList()
+        public ToDoList(TaskDao dao)
         {
             InitializeComponent();
+            this.dao = dao;
         }
+
+        private TaskDao dao;
 
         private List<Data> taskList = new List<Data>();
 
@@ -39,6 +43,8 @@ namespace WindowsFormsApp1
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            dao.sampleMethod();
+
             String name = comboBoxName.Text;
             String date = dateTimePicker.Value.ToShortDateString();
             String task = taskTextBox.Text;
