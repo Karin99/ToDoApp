@@ -2,6 +2,9 @@
 using System;
 
 using MySql.Data.MySqlClient;
+using System.Data;
+using Microsoft.Extensions.DependencyInjection;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
@@ -14,21 +17,18 @@ namespace WindowsFormsApp1
             this.connStr = connStr;
         }
 
-        public void sampleMethod()
+        public DataTable loadTasks()
         {
-            try
-            {            
-                MySqlConnection conn = new MySqlConnection(connStr);
-                conn.Open();
+            DataTable tbl = new DataTable();
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
 
-                Console.WriteLine("MySQLに接続しました！");
-
-                conn.Close();
-            }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine("ERROR: " + ex.Message);
-            }
+            string cmdText = "SELECT is_completed, name, date, task FROM tasks";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmdText, conn);
+            adapter.Fill(tbl);
+            conn.Close();
+            return tbl;
         }
+
     }
 }
