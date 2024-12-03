@@ -112,7 +112,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(20, 371);
+            this.btnDelete.Location = new System.Drawing.Point(199, 371);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 40);
             this.btnDelete.TabIndex = 1;
@@ -122,7 +122,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(108, 371);
+            this.btnSave.Location = new System.Drawing.Point(119, 371);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 40);
             this.btnSave.TabIndex = 2;
@@ -132,7 +132,7 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(195, 371);
+            this.btnImport.Location = new System.Drawing.Point(20, 371);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 40);
             this.btnImport.TabIndex = 10;
@@ -143,7 +143,7 @@
             // btnHide
             // 
             this.btnHide.AllowDrop = true;
-            this.btnHide.Location = new System.Drawing.Point(285, 371);
+            this.btnHide.Location = new System.Drawing.Point(295, 371);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(75, 40);
             this.btnHide.TabIndex = 11;
@@ -165,7 +165,7 @@
             // 
             this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.AllowUserToResizeRows = false;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;            
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(20, 109);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 21;
