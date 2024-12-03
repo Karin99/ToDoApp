@@ -37,6 +37,7 @@
             this.comboBoxName = new System.Windows.Forms.ComboBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnHide = new System.Windows.Forms.Button();
             this.btnUnhide = new System.Windows.Forms.Button();
@@ -111,7 +112,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(20, 371);
+            this.btnDelete.Location = new System.Drawing.Point(199, 371);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 40);
             this.btnDelete.TabIndex = 1;
@@ -119,9 +120,19 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(119, 371);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 40);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "保存";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(136, 371);
+            this.btnImport.Location = new System.Drawing.Point(20, 371);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 40);
             this.btnImport.TabIndex = 10;
@@ -132,7 +143,7 @@
             // btnHide
             // 
             this.btnHide.AllowDrop = true;
-            this.btnHide.Location = new System.Drawing.Point(260, 371);
+            this.btnHide.Location = new System.Drawing.Point(295, 371);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(75, 40);
             this.btnHide.TabIndex = 11;
@@ -175,6 +186,7 @@
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.labelName);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.dataGridView);
@@ -200,6 +212,7 @@
         private System.Windows.Forms.ComboBox comboBoxName;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnHide;
         private System.Windows.Forms.Button btnUnhide;

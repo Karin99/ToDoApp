@@ -53,16 +53,35 @@ namespace WindowsFormsApp1
             comboBoxName.Text = "";
             dateTimePicker.Value = DateTime.Now;
             taskTextBox.Text = "";
+
+            ToDoList_Load(sender, e);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
-            int id = Convert.ToInt32(selectedRow.Cells["ColumnId"].Value);
+            if (dataGridView.SelectedRows.Count > 0)
+            {
 
-            dao.deleteTask(id);
+                foreach (DataGridViewRow row in dataGridView.SelectedRows)
+                {
+                    int id = Convert.ToInt32(row.Cells["ColumnId"].Value);
 
-            MessageBox.Show("削除完了");
+                    dao.deleteTask(id);
+                }
+                MessageBox.Show("削除完了");
+            }
+            else
+            {
+                MessageBox.Show("削除するタスクを選択してください");
+            }
+            ToDoList_Load(sender, e);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
+
+            MessageBox.Show("保存完了");
         }
 
         private void btnImport_Click(object sender, EventArgs e)
